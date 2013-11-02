@@ -1,0 +1,10 @@
+{
+    "trade": [
+        {
+            "_id": "t1",
+            "traderId": "papjac",
+            "value": 90.3,
+            "exchangeCode": "NYSE"
+        }
+    ]
+}

@@ -12,11 +12,10 @@ import com.ourownjava.spring.data.mongo.model.Trade;
  * @author ourownjava.com
  *
  */
-
 public interface TradeRepository extends MongoRepository<Trade, String>{
 
 	public List<Trade> findByTraderId(final String traderId);
 	
-	public List<Trade> findByExchangeId(final String exchangeId);
+	public List<Trade> findByExchangeCode(final String exchangeId);
 }
  

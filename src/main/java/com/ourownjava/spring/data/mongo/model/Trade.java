@@ -1,12 +1,14 @@
 package com.ourownjava.spring.data.mongo.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * 
  * @author ourownjava.com
  *
  */
+@Document(collection = "trade")
 public class Trade {
 	
 	@Id
@@ -16,7 +18,7 @@ public class Trade {
 	
 	private Double value;
 	
-	private String exchangeId;
+	private String exchangeCode;
 
 	public String getId() {
 		return id;
@@ -42,12 +44,12 @@ public class Trade {
 		this.value = value;
 	}
 
-	public String getExchangeId() {
-		return exchangeId;
+	public String getExchangeCode() {
+		return exchangeCode;
 	}
 
-	public void setExchangeId(final String exchangeId) {
-		this.exchangeId = exchangeId;
+	public void setExchangeCode(final String exchangeCode) {
+		this.exchangeCode = exchangeCode;
 	}
 
 }
