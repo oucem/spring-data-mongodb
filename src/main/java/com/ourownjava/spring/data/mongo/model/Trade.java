@@ -1,5 +1,7 @@
 package com.ourownjava.spring.data.mongo.model;
 
+import org.springframework.data.annotation.Id;
+
 /**
  * 
  * @author ourownjava.com
@@ -7,6 +9,7 @@ package com.ourownjava.spring.data.mongo.model;
  */
 public class Trade {
 	
+	@Id
 	private String id;
 	
 	private String traderId;
