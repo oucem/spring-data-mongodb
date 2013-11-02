@@ -1,5 +1,8 @@
 package com.ourownjava.spring.data.mongo.repository;
 
-public class TradeRepository {
+import com.ourownjava.spring.data.mongo.model.Trade;
+
+public interface TradeRepository extends MongoRepository<Trade, String>{
 
 }
+ 
