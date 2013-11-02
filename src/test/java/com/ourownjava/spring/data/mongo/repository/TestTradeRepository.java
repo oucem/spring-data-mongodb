@@ -1,6 +1,12 @@
 package com.ourownjava.spring.data.mongo.repository;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+
 import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
+
+import java.util.List;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -17,6 +23,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.foursquare.fongo.Fongo;
 import com.lordofthejars.nosqlunit.annotation.ShouldMatchDataSet;
+import com.lordofthejars.nosqlunit.annotation.UsingDataSet;
 import com.lordofthejars.nosqlunit.mongodb.MongoDbRule;
 import com.mongodb.Mongo;
 import com.ourownjava.spring.data.mongo.model.Trade;
@@ -49,10 +56,23 @@ public class TestTradeRepository {
 		tradeRepository.save(createTrade());
 	}
 	
+	@Test
+	@UsingDataSet(locations = {"/testData/trade-t1.json"})
+	public void shouldFindByTraderId(){
+		final List<Trade> trades = tradeRepository.findByTraderId("papjac");
+		assertNotNull(trades);
+		assertTrue(trades.size() > 0);
+		assertEquals("papjac", trades.get(0).getTraderId());
+	}
 	
-	
-	//@UsingDataSet(locations = {"/testData/item/item-i1.json"})
-	
+	@Test
+	@UsingDataSet(locations = {"/testData/trade-t1.json"})
+	public void shouldFindByExchangeCode(){
+		final List<Trade> trades = tradeRepository.findByExchangeCode("NYSE");
+		assertNotNull(trades);
+		assertTrue(trades.size() > 0);
+		assertEquals("NYSE", trades.get(0).getExchangeCode());
+	}
 	
 	
 	private Trade createTrade(){
