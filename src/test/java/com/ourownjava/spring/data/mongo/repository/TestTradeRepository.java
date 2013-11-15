@@ -1,10 +1,9 @@
 package com.ourownjava.spring.data.mongo.repository;
 
+import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
-
-import static com.lordofthejars.nosqlunit.mongodb.MongoDbRule.MongoDbRuleBuilder.newMongoDbRule;
 
 import java.util.List;
 
@@ -15,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.test.context.ContextConfiguration;
@@ -89,7 +87,6 @@ public class TestTradeRepository {
 	@Configuration
 	@EnableMongoRepositories
 	@ComponentScan(basePackageClasses = { TradeRepository.class })
-	@PropertySource("classpath:application.properties")
 	static class MongoConfiguration extends AbstractMongoConfiguration {
 
 		@Override
